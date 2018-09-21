@@ -3,4 +3,4 @@ from django.http.response import HttpResponse, HttpResponseRedirect, JsonRespons
 
 
 def home(request):
-    return HttpResponse('ok')
+    return render(request, 'base.html')
