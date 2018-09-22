@@ -4,5 +4,6 @@ from .views import *
 
 urlpatterns = [
     re_path('^$', home, name='home'),
+    re_path('^dinesh/$', dinesh_home, name='dinesh_home'),
     re_path('^src/(?P<videoid>[^/]+)/$', get_src, name='get_src'),
 ]
