@@ -1,13 +1,9 @@
 @font-face {
-  font-family: DaxRegular;
-  src: url(../fonts/DaxOT.eot);
-  src: url(../fonts/DaxOT.woff) format('woff'), url(../fonts/DaxOT.ttf) format('truetype'), url(../fonts/DaxOT.svg) format('svg')
+  font-family: daxot-reg;
+  src: url(https://s3.amazonaws.com/refactored/static/DaxOT.eot?);
+  src: local('?'), url(https://s3.amazonaws.com/refactored/static/DaxOT.woff) format('woff'), url(https://s3.amazonaws.com/refactored/static/DaxOT.ttf) format('truetype'), url(https://s3.amazonaws.com/refactored/static/DaxOT.svg#webfontg8dbVmxj) format('svg')
 }
 
-:not(i):not(.fa) {
-    font-family: DaxRegular !important;
-    font-style: normal !important;
-}
 
 * {
   box-sizing: border-box;

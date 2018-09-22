@@ -3,9 +3,18 @@ var PLAYER_SETTIMEOUT;
 var PLAY_NOW;
 
 
-function toggle(node, e) {
-    e.preventDefault();
+function set_color(node) {
+    var lis = document.getElementsByTagName('li');
+    for (var i=0; i<lis.length; i++) {
+        lis[i].firstChild.nextSibling.style.color = '#000000';
+    }
+    node.firstChild.nextSibling.style.color = 'blue';
+}
+
+
+function toggle(node) {
     PLAY_NOW = node.getAttribute('data-id');
+    set_color(node);
     function repeat(node) {
         if (node.firstChild.src && PLAY_NOW === node.getAttribute('data-id')) {
             clearTimeout(PLAYER_SETTIMEOUT);

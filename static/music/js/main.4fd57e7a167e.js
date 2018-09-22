@@ -2,9 +2,7 @@ var PLAYER;
 var PLAYER_SETTIMEOUT;
 var PLAY_NOW;
 
-
-function toggle(node, e) {
-    e.preventDefault();
+function toggle(node) {
     PLAY_NOW = node.getAttribute('data-id');
     function repeat(node) {
         if (node.firstChild.src && PLAY_NOW === node.getAttribute('data-id')) {
@@ -26,7 +24,6 @@ function toggle(node, e) {
             setTimeout(repeat, 0, node);
         }
     }
-    repeat(node);
 }
 
 
@@ -38,6 +35,7 @@ function set_audio(node, videoid) {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
             node.firstChild.src = myArr.src;
+            node.style.cursor = 'pointer';
             node.firstChild.nextSibling.style.color = 'black';
         }
     };

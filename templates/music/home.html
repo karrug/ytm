@@ -6,11 +6,15 @@
 {% endblock %}
 
 {% block content %}
-<form id='search' class='m-3'">
-  <input name='q' type="search" id="myInput" placeholder="Search">
+<form id='search' class='m-3'" method='post'>
+  {% csrf_token %}
+  <input name='q' value="{{ q }}" type="text" id="myInput" placeholder="Search">
 </form>
 
 <ul id='myUL'>
+  {% for result in results %}
+  <li style='cursor: pointer;' onclick="toggle(this, event)" data-id="{{ result.id }}"><audio preload="auto"></audio><a href='' style='color: gray;'>{{ result.title }}</a>
+  {% endfor %}
 </ul>
 {% endblock %}
 

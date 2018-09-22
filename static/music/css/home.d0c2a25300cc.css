@@ -1,12 +1,6 @@
 @font-face {
-  font-family: DaxRegular;
-  src: url(../fonts/DaxOT.eot);
-  src: url(../fonts/DaxOT.woff) format('woff'), url(../fonts/DaxOT.ttf) format('truetype'), url(../fonts/DaxOT.svg) format('svg')
-}
-
-:not(i):not(.fa) {
-    font-family: DaxRegular !important;
-    font-style: normal !important;
+  font-family: daxot-reg;
+  src: url(https://s3.amazonaws.com/refactored/static/DaxOT.woff) format('woff')
 }
 
 * {

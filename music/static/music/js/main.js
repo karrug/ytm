@@ -1,53 +1,52 @@
 var PLAYER;
+var PLAYER_SETTIMEOUT;
+var PLAY_NOW;
 
 
-function toggle() {
-    var node = this;
-    if (!PLAYER || PLAYER.paused) {
-        PLAYER = node.firstChild;
-        PLAYER.nextSibling.style.color = 'blue';
-        PLAYER.play();
-    } else {
-        PLAYER.pause();
-        PLAYER.nextSibling.style.color = '#000000';
-        if (PLAYER !== node.firstChild) {
-            PLAYER = node.firstChild;
-            PLAYER.nextSibling.style.color = 'blue';
-            PLAYER.play();
+function toggle(node, e) {
+    e.preventDefault();
+    PLAY_NOW = node.getAttribute('data-id');
+    function repeat(node) {
+        if (node.firstChild.src && PLAY_NOW === node.getAttribute('data-id')) {
+            clearTimeout(PLAYER_SETTIMEOUT);
+            if (!PLAYER || PLAYER.paused) {
+                PLAYER = node.firstChild;
+                PLAYER.nextSibling.style.color = 'blue';
+                PLAYER.play();
+            } else {
+                PLAYER.pause();
+                PLAYER.nextSibling.style.color = '#000000';
+                if (PLAYER !== node.firstChild) {
+                    PLAYER = node.firstChild;
+                    PLAYER.nextSibling.style.color = 'blue';
+                    PLAYER.play();
+                }
+            }
+        } else if (PLAY_NOW === node.getAttribute('data-id')) {
+            setTimeout(repeat, 0, node);
         }
     }
+    repeat(node);
 }
 
-var ws_url = "ws://" + window.location.hostname + ":5678/";
-var ws = new WebSocket(ws_url);
-ws.onmessage = function (event) {
-    data = JSON.parse(event.data)
-    if (data.extracted === false) {
-        var result = '<li style="cursor: default;" id="' + data.id + '"><span style="color: gray;">' + data.title + '</span></li>';
-        document.getElementById('myUL').insertAdjacentHTML('beforeend', result);
-    } else {
-        var audio = '<audio src="' + data.url + '" preload="auto"></audio>';
-        var audio = document.createElement('audio');
-        audio.src = data.url;
-        audio.preload = 'auto';
-        var li = document.getElementById(data.id);
-        li.addEventListener('click', toggle);
-        li.insertBefore(audio, li.firstChild);
-        li.firstChild.nextSibling.style.color = 'black';
-        li.style.cursor = 'pointer';
-        li.firstChild.addEventListener('error', function failed(e) {
-            li.removeEventListener('click', toggle);
-            li.firstChild.nextSibling.style.color = 'gray';
-            li.style.cursor = 'default';
-        });
-    }
-};
 
-document.getElementById('search').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var node = document.getElementById('myUL');
-    while (node.hasChildNodes()) {
-        node.removeChild(node.lastChild);
-    }
-    ws.send(JSON.stringify({'q': this.firstChild.nextSibling.value}));
-});
+function set_audio(node, videoid) {
+    var xmlhttp = new XMLHttpRequest();
+    var url = "/src/" + videoid;
+    
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            node.firstChild.src = myArr.src;
+            node.firstChild.nextSibling.style.color = 'black';
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+var lis = document.getElementsByTagName('li');
+for (var i=0; i<lis.length; i++) {
+    var videoid = lis[i].getAttribute('data-id');
+    set_audio(lis[i], videoid);
+}

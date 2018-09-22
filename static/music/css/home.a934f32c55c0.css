@@ -1,13 +1,8 @@
 @font-face {
-  font-family: DaxRegular;
-  src: url(../fonts/DaxOT.eot);
-  src: url(../fonts/DaxOT.woff) format('woff'), url(../fonts/DaxOT.ttf) format('truetype'), url(../fonts/DaxOT.svg) format('svg')
+  font-family: daxot-reg;
+  src: url("DaxOT.d41429a393fa.woff");
 }
 
-:not(i):not(.fa) {
-    font-family: DaxRegular !important;
-    font-style: normal !important;
-}
 
 * {
   box-sizing: border-box;

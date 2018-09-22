@@ -1,3 +1,14 @@
+@font-face {
+  font-family: DaxRegular;
+  src: url(../fonts/DaxOT.eot);
+  src: url(../fonts/DaxOT.woff) format('woff'), url(../fonts/DaxOT.ttf) format('truetype'), url(../fonts/DaxOT.svg) format('svg')
+}
+
+:not(i):not(.fa) {
+    font-family: DaxRegular !important;
+    font-style: normal !important;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -16,7 +27,7 @@
   margin: 0;
 }
 
-#myUL li span {
+#myUL li a {
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
   padding: 12px 20px 12px 12px;

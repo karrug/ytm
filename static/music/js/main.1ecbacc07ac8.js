@@ -3,8 +3,7 @@ var PLAYER_SETTIMEOUT;
 var PLAY_NOW;
 
 
-function toggle(node, e) {
-    e.preventDefault();
+function toggle(node) {
     PLAY_NOW = node.getAttribute('data-id');
     function repeat(node) {
         if (node.firstChild.src && PLAY_NOW === node.getAttribute('data-id')) {

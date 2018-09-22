@@ -1,12 +1,9 @@
 @font-face {
-  font-family: DaxRegular;
-  src: url(../fonts/DaxOT.eot);
-  src: url(../fonts/DaxOT.woff) format('woff'), url(../fonts/DaxOT.ttf) format('truetype'), url(../fonts/DaxOT.svg) format('svg')
-}
-
-:not(i):not(.fa) {
-    font-family: DaxRegular !important;
-    font-style: normal !important;
+    font-family: 'Dax';
+    src: url('https://s3.amazonaws.com/refactored/static/Dax-Regular.woff2') format('woff2'),
+        url('https://s3.amazonaws.com/refactored/static/Dax-Regular.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
 }
 
 * {
