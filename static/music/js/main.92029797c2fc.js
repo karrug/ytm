@@ -43,11 +43,11 @@ ws.onmessage = function (event) {
     }
 };
 
-document.getElementById('search').addEventListener('submit', function (e) {
+var search = document.getElementById('search');
+search.addEventListener('submit', function (e) {
     e.preventDefault();
-    var node = document.getElementById('myUL');
-    while (node.hasChildNodes()) {
-        node.removeChild(node.lastChild);
-    }
-    ws.send(JSON.stringify({'q': this.firstChild.nextSibling.value}));
+    console.log(this.val);
+    console.log(this);
+    console.log(search);
+    //websocket.send(JSON.stringify({'q': this.val()}));
 });

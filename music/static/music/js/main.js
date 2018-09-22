@@ -42,3 +42,12 @@ ws.onmessage = function (event) {
         });
     }
 };
+
+document.getElementById('search').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var node = document.getElementById('myUL');
+    while (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
+    }
+    ws.send(JSON.stringify({'q': this.firstChild.nextSibling.value}));
+});

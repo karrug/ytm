@@ -6,9 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<form class='m-3' method='post' action="{% url 'search' %}">
-  {% csrf_token %}
-  <input name='q' type="search" id="myInput" placeholder="Search youtube music">
+<form id='search' class='m-3'">
+  <input name='q' type="search" id="myInput" placeholder="Search">
 </form>
 
 <ul id='myUL'>
