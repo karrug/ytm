@@ -6,10 +6,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ytm</title>
-  <!--<link rel="stylesheet" href="{% static 'music/css/normalize.css' %}">-->
+  {% block css %}
+  {% endblock %}
 </head>
 <body>
-  <h1>Youtube Music</h1>
   {% block content %}
   {% endblock %}
   {% block js %}

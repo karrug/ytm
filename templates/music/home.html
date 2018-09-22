@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'music/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<form class='m-3' method='post' action="{% url 'search' %}">
+  {% csrf_token %}
+  <input name='q' type="search" id="myInput" placeholder="Search youtube music">
+</form>
+
+<ul id='myUL'>
+  {% for m in results %}
+  <li><a href="#">{{ m.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -4,4 +4,5 @@ from .views import *
 
 urlpatterns = [
     re_path('^$', home, name='home'),
+    re_path('^search/$', search, name='search'),
 ]
