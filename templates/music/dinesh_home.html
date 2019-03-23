@@ -8,7 +8,7 @@
 {% block content %}
 <form id='search' class='m-3'" method='post'>
   {% csrf_token %}
-  <input name='q' value="{{ q }}" type="text" id="myInput" placeholder="Search">
+  <input autocomplete="off" name='q' value="{{ q }}" type="text" id="myInput" placeholder="Search">
 </form>
 
 <ul id='myUL'>
