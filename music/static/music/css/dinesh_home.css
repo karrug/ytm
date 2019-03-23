@@ -15,7 +15,7 @@
 
 #myInput {
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
   padding: 12px 20px 12px 12px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
@@ -32,13 +32,13 @@
   margin-top: -1px; /* Prevent double borders */
   padding: 12px 20px 12px 12px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   color: black;
   display: block
 }
 
 @media only screen and (max-width: 600px) {
   #myInput {
-    font-size: 19px;
+    font-size: 18px;
   }
 }

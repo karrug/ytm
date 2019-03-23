@@ -1,7 +1,7 @@
 @font-face {
   font-family: DaxRegular;
-  src: url(../fonts/DaxOT.eot);
-  src: url(../fonts/DaxOT.woff) format('woff'), url(../fonts/DaxOT.ttf) format('truetype'), url(../fonts/DaxOT.svg) format('svg')
+  src: url("../fonts/DaxOT.64d7d35f1958.eot");
+  src: url("../fonts/DaxOT.d41429a393fa.woff") format('woff'), url("../fonts/DaxOT.7550b8cb1d87.ttf") format('truetype'), url("../fonts/DaxOT.990b934d9d42.svg") format('svg')
 }
 
 :not(i):not(.fa) {
@@ -15,7 +15,7 @@
 
 #myInput {
   width: 100%;
-  font-size: 15px;
+  font-size: 14px;
   padding: 12px 20px 12px 12px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
@@ -32,13 +32,13 @@
   margin-top: -1px; /* Prevent double borders */
   padding: 12px 20px 12px 12px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   color: black;
   display: block
 }
 
 @media only screen and (max-width: 600px) {
   #myInput {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
