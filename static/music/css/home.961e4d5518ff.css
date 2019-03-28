@@ -1,0 +1,17 @@
+#myInput {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myUL li a {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: black;
+  display: block
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}

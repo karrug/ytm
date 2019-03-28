@@ -5,7 +5,7 @@
 #myInput {
   width: 100%;
   font-size: medium;
-  padding: 10px 5px 10px 5px;
+  padding: 10px 20px 10px 12px;
   border: none;
   border-bottom: 1px solid #ddd;
 }
@@ -20,7 +20,7 @@
   border: none;
   border-bottom: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
-  padding: 10px 5px 10px 5px;
+  padding: 10px 20px 10px 12px;
   text-decoration: none;
   font-size: medium;
   color: black;

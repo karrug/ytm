@@ -4,10 +4,10 @@
 
 #myInput {
   width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 12px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
+  font-size: medium;
+  padding: 10px 5px 10px 5px;
+  border: none;
+  border-bottom: 1px solid #ddd;
 }
 
 #myUL {
@@ -17,11 +17,12 @@
 }
 
 #myUL li a {
-  border: 1px solid #ddd;
+  border: none;
+  border-bottom: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
-  padding: 12px 20px 12px 12px;
+  padding: 10px 5px 10px 5px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: medium;
   color: black;
   display: block
 }
@@ -30,4 +31,8 @@
   #myInput {
     font-size: 19px;
   }
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
