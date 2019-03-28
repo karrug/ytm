@@ -6,7 +6,7 @@ import pafy
 
 def get_results(q):
     results = []
-    qs = {'q': q, 'maxResults': 10, 'part': 'id,snippet'}
+    qs = {'q': q, 'maxResults': 12, 'part': 'id,snippet'}
     gdata = pafy.call_gdata('search', qs)
     with youtube_dl.YoutubeDL({'format': 'bestaudio/best'}) as ydl:
         for item in gdata['items']:

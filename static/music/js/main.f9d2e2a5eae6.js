@@ -1,30 +1,16 @@
 var PLAYER;
 var PLAYER_SETTIMEOUT;
 var PLAY_NOW;
-var GG;
-
-
-
-function remove_blue_color() {
-    var lis = document.getElementsByTagName('li');
-    for (var i=0; i<lis.length; i++) {
-        var videoid = lis[i].getAttribute('data-id');
-        lis[i].firstChild.nextSibling.style.color = '#000000';
-    }
-}
 
 
 function toggle(node, e) {
-    if (e) {
-        e.preventDefault();
-    }
+    e.preventDefault();
     PLAY_NOW = node.getAttribute('data-id');
     function repeat(node) {
         if (node.firstChild.src && PLAY_NOW === node.getAttribute('data-id')) {
             clearTimeout(PLAYER_SETTIMEOUT);
             if (!PLAYER || PLAYER.paused) {
                 PLAYER = node.firstChild;
-                remove_blue_color();
                 PLAYER.nextSibling.style.color = 'blue';
                 PLAYER.play();
             } else {
@@ -32,7 +18,6 @@ function toggle(node, e) {
                 PLAYER.nextSibling.style.color = '#000000';
                 if (PLAYER !== node.firstChild) {
                     PLAYER = node.firstChild;
-                    remove_blue_color();
                     PLAYER.nextSibling.style.color = 'blue';
                     PLAYER.play();
                 }
@@ -54,10 +39,12 @@ function set_audio(node, videoid, autoplay) {
             var myArr = JSON.parse(this.responseText);
             node.firstChild.src = myArr.src;
             node.firstChild.nextSibling.style.color = 'black';
+            console.log(node);
+            console.log(autoplay);
             if (autoplay === 'yes') {
                 node.firstChild.onended = function () {
-                    if (node.nextElementSibling) {
-                        toggle(node.nextElementSibling);
+                    if (node.nextSibling) {
+                        node.nextSibling.firstChild.play();
                     }
                 }
             }

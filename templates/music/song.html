@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'music/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<ul id='myUL'>
+  <li style='cursor: pointer;' onclick="toggle(this, event)" data-id="{{ videoid }}"><audio {% if network == 'high' %}preload="auto"{% else %}preload="none"{% endif %}></audio><a href='' style='color: gray;'>{{ title }}</a></li>
+  {% if liked %}
+  <li style='cursor: pointer;'><a href='{% url "song" videoid title %}?flag=dislike' style='color: gray;'>dislike</a></li>
+  {% else %}
+  <li style='cursor: pointer;'><a href='{% url "song" videoid title %}?flag=like' style='color: gray;'>like</a></li>
+  {% endif %}
+  <li style='cursor: pointer;'><a href='{% url "adv" %}' style='color: gray;'>advanced home</a></li>
+</ul>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'music/js/main.js' %}"></script>
+{% endblock %}

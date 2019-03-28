@@ -8,6 +8,7 @@
   padding: 10px 5px 10px 5px;
   border: none;
   border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
 }
 
 #myUL {

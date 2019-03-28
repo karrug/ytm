@@ -9,7 +9,7 @@ function remove_blue_color() {
     var lis = document.getElementsByTagName('li');
     for (var i=0; i<lis.length; i++) {
         var videoid = lis[i].getAttribute('data-id');
-        lis[i].firstChild.nextSibling.style.color = '#000000';
+        lis[i].nextSibling.style.color = '#000000';
     }
 }
 

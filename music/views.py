@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.http import StreamingHttpResponse
 from music import utils
+from music.models import *
 
 
 def home(request):
@@ -14,14 +15,32 @@ def home(request):
         return render(request, 'music/home.html', {'network': network})
 
 
-def dinesh_home(request):
+def adv(request):
     network = request.GET.get('network', 'high')
     if request.POST:
         q = request.POST['q']
         results = utils.get_results(q)
-        return render(request, 'music/dinesh_home.html', {'results': results, 'q': q, 'network': network})
+        return render(request, 'music/adv.html', {'results': results, 'q': q, 'network': network})
     else:
-        return render(request, 'music/dinesh_home.html', {'network': network})
+        return render(request, 'music/adv.html', {'network': network})
+
+
+def song(request, videoid, title):
+    s, _ = Song.objects.get_or_create(videoid=videoid)
+    flag = request.GET.get('flag')
+    if flag:
+        if flag == 'like':
+            s.liked = True
+            s.save()
+        else:
+            s.liked = False 
+            s.save()
+    return render(request, 'music/song.html', {'videoid': videoid, 'title': title, 'liked': s.liked})
+
+
+def playlist(request):
+    songs = Song.objects.filter(liked=True)
+    return render(request, 'music/playlist.html', {'songs': songs})
 
 
 def get_src(request, videoid):

@@ -13,11 +13,7 @@
 
 <ul id='myUL'>
   {% for result in results %}
-  <li style='cursor: pointer;' onclick="toggle(this, event)" data-id="{{ result.id }}"><audio {% if network == 'high' %}preload="auto"{% else %}preload="none"{% endif %}></audio><a href='' style='color: gray;'>{{ result.title }}</a></li>
+  <li style='cursor: pointer;'><a href='{% url "song" result.id result.title %}' style='color: gray;'>{{ result.title }}</a></li>
   {% endfor %}
 </ul>
-{% endblock %}
-
-{% block js %}
-<script src="{% static 'music/js/main.js' %}"></script>
 {% endblock %}

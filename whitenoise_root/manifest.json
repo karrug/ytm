@@ -1,6 +1,5 @@
 {
-  "short_name": "KMusic",
-  "name": "KMusic",
+  "name": "Youtube Music",
   "icons": [
     {
       "src": "icon.png",
@@ -8,7 +7,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/dinesh/?network=slow",
+  "start_url": "/?network=slow",
   "display": "standalone",
   "orientation": "portrait"
 }

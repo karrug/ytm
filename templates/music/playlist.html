@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'music/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<ul id='myUL'>
+  {% for song in songs %}
+  <li style='cursor: pointer;' onclick="toggle(this, event)" data-id="{{ song.id }}"><audio {% if network == 'high' %}preload="auto"{% else %}preload="none"{% endif %}></audio><a href='' style='color: gray;'>{{ song.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'music/js/main.js' %}"></script>
+{% endblock %}
