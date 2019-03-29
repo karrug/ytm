@@ -26,7 +26,7 @@ def adv(request):
 
 
 def song(request, videoid, title):
-    s, _ = Song.objects.get_or_create(videoid=videoid)
+    s, _ = Song.objects.get_or_create(videoid=videoid, title=title)
     flag = request.GET.get('flag')
     if flag:
         if flag == 'like':
@@ -40,6 +40,7 @@ def song(request, videoid, title):
 
 def playlist(request):
     songs = Song.objects.filter(liked=True)
+    print(songs)
     return render(request, 'music/playlist.html', {'songs': songs})
 
 

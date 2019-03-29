@@ -1,0 +1,13 @@
+{
+  "name": "Youtube Music",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/playlist?network=slow&autoplay=yes",
+  "display": "standalone",
+  "orientation": "portrait"
+}

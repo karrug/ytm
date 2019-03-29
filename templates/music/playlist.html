@@ -8,7 +8,7 @@
 {% block content %}
 <ul id='myUL'>
   {% for song in songs %}
-  <li style='cursor: pointer;' onclick="toggle(this, event)" data-id="{{ song.id }}"><audio {% if network == 'high' %}preload="auto"{% else %}preload="none"{% endif %}></audio><a href='' style='color: gray;'>{{ song.title }}</a></li>
+  <li style='cursor: pointer;' onclick="toggle(this, event)" data-id="{{ song.videoid }}"><audio {% if network == 'high' %}preload="auto"{% else %}preload="none"{% endif %}></audio><a href='' style='color: gray;'>{{ song.title }}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}

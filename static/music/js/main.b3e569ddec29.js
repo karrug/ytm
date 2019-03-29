@@ -62,7 +62,7 @@ function set_audio(node, videoid, autoplay, pos) {
                 }
             }
             if (pos === 0) {
-                toggle(node);
+                toggle(node.firstChild);
             }
         }
     };
