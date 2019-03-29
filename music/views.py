@@ -9,7 +9,11 @@ def home(request):
     network = request.GET.get('network', 'high')
     if request.POST:
         q = request.POST['q']
-        results = utils.get_results(q)
+        q = q.lower()
+        if q == 'trending':
+            results = utils.get_treding_results()
+        else:
+            results = utils.get_results(q)
         return render(request, 'music/home.html', {'results': results, 'q': q, 'network': network})
     else:
         return render(request, 'music/home.html', {'network': network})
@@ -40,7 +44,6 @@ def song(request, videoid, title):
 
 def playlist(request):
     songs = Song.objects.filter(liked=True)
-    print(songs)
     return render(request, 'music/playlist.html', {'songs': songs})
 
 

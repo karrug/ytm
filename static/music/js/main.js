@@ -45,7 +45,7 @@ function toggle(node, e) {
 }
 
 
-function set_audio(node, videoid, autoplay, pos) {
+function set_audio(node, videoid, autoplay) {
     var xmlhttp = new XMLHttpRequest();
     var url = "/src/" + videoid;
     
@@ -61,9 +61,6 @@ function set_audio(node, videoid, autoplay, pos) {
                     }
                 }
             }
-            if (pos === 0) {
-                toggle(node);
-            }
         }
     };
     xmlhttp.open("GET", url, true);
@@ -75,5 +72,5 @@ var url = new URL(window.location.href);
 var autoplay = url.searchParams.get('autoplay');
 for (var i=0; i<lis.length; i++) {
     var videoid = lis[i].getAttribute('data-id');
-    set_audio(lis[i], videoid, autoplay, i);
+    set_audio(lis[i], videoid, autoplay);
 }

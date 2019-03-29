@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
+import os
 import json
+import requests
 import youtube_dl
 import pafy
 
@@ -23,3 +25,16 @@ def get_info(videoid):
         url = "https://www.youtube.com/watch?v=" + videoid
         info_dict = ydl.extract_info(url, download=False)
     return info_dict.get('url', '#')
+
+
+def get_treding_results():
+    url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&' + \
+            'regionCode=IN&maxResults=25&videoCategoryId=10&key=%s' % (os.environ['APIKEY'])
+    r = requests.get(url)
+    d = r.json()
+    results = []
+    for i in d['items']:
+        results.append({'id': i['id'], 'title': i['snippet']['title']})
+    return results
+
+
