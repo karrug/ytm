@@ -1,0 +1,9 @@
+[uwsgi]
+
+chdir           = /root/ytm/ytm
+module          = ytm.wsgi
+virtualenv      = /root/ytm/env
+master          = true
+socket          = /var/run/karrugmusic.sock
+chmod-socket    = 666
+plugin          = python3
