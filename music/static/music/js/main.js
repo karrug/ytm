@@ -47,7 +47,7 @@ function toggle(node, e) {
 
 function set_audio(node, videoid, autoplay) {
     var xmlhttp = new XMLHttpRequest();
-    var url = "/src/" + videoid;
+    var url = "/music/src/" + videoid;
     
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
