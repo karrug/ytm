@@ -1,3 +1,4 @@
+import sh
 from django.shortcuts import render
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.http import StreamingHttpResponse
@@ -50,3 +51,8 @@ def playlist(request):
 def get_src(request, videoid):
     src = utils.get_info(videoid)
     return JsonResponse({'src': src})
+
+
+def update(request):
+    sh.pip.install('--yes', '--upgrade', 'youtube-d')
+    return HttpResponse('updated')
