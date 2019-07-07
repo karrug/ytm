@@ -1,4 +1,4 @@
-import sh
+import os
 from django.shortcuts import render
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.http import StreamingHttpResponse
@@ -54,5 +54,5 @@ def get_src(request, videoid):
 
 
 def update(request):
-    sh.pip.install('--yes', '--upgrade', 'youtube-d')
+    os.system('/root/ytm/env/bin/pip install --yes --upgrade youtube-dl')
     return HttpResponse('updated')
