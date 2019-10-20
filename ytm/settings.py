@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ytm.urls'
@@ -123,7 +123,8 @@ USE_TZ = True
 ############################### staticfiles ##########################################
 STATIC_URL = '/static/'
 STATIC_ROOT = '/srv/static'
-# WHITENOISE_ROOT = os.path.join(BASE_DIR, 'whitenoise_root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'whitenoise_root')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
