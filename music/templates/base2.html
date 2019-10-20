@@ -1,12 +1,11 @@
-{% load static from staticfiles %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="manifest.json">
-    <title>Music</title>
-    <style>
+    <title>Monitor</title>
+    <style type="text/css">
       body {
         margin: 40px auto;
         max-width: 650px;
@@ -26,19 +25,17 @@
         margin-bottom: 16px;
       }
     </style>
-    {% block css %}
+    {% block style %}
     {% endblock %}
   </head>
   <body>
     <header>
-      <h1 class='topbar'>YOUTUBE</h1>
+      <h1 class='topbar'>MONITOR</h1>
       {% block subhead %}
       {% endblock %}
     </header>
     <hr style='margin-bottom: 32px;'></hr>
     {% block content %}
-    {% endblock %}
-    {% block js %}
     {% endblock %}
   </body>
 </html>

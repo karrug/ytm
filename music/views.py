@@ -17,7 +17,7 @@ def home(request):
             results = utils.get_results(q)
         return render(request, 'music/home.html', {'results': results, 'q': q, 'network': network})
     else:
-        return render(request, 'music/home.html', {'network': network})
+        return render(request, 'music/search.html', {'network': network})
 
 
 def adv(request):
@@ -56,3 +56,8 @@ def get_src(request, videoid):
 def update(request):
     os.system('../env/bin/pip install --yes --upgrade youtube-dl')
     return HttpResponse('updated')
+
+
+def test(request):
+    results = utils.get_results(request.GET['q'])
+    return render(request, 'music.html', {'results': results})

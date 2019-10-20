@@ -4,8 +4,10 @@
 
 #myInput {
   width: 100%;
+  padding: 10px 5px 10px 5px;
   border: none;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
   font-size: inherit;
 }
 
@@ -17,10 +19,11 @@
 
 #myUL li a {
   border: none;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
-  padding: 14px 5px 14px 5px;
+  padding: 10px 5px 10px 5px;
   text-decoration: none;
+  color: black;
   display: block
 }
 

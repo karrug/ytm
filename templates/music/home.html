@@ -1,22 +1,27 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
 
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'music/css/home.css' %}">
 {% endblock %}
 
-{% block content %}
-<form id='search' class='m-3'" method='post'>
-  {% csrf_token %}
-  <input autocomplete="off" name='q' value="{{ q }}" type="text" id="myInput" placeholder="Search">
-</form>
 
+{% block subhead %}
+<h3 style='display: inline;'><a style='color: gray; margin-right: 18px;' href='{% url "home" %}'>Search</a></h3>
+<h3 style='display: inline;'><a style='color: gray; margin-right: 18px;' href='#'>Playlist</a></h3>
+{% endblock %}
+
+
+{% block content %}
+<h2>{{ q }}</h2>
 <ul id='myUL'>
   {% for result in results %}
   <li style='cursor: pointer;' onclick="toggle(this, event)" data-id="{{ result.id }}"><audio {% if network == 'high' %}preload="auto"{% else %}preload="none"{% endif %}></audio><a href='' style='color: gray;'>{{ result.title }}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}
+
 
 {% block js %}
 <script src="{% static 'music/js/main.js' %}"></script>

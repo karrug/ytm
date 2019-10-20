@@ -1,0 +1,39 @@
+{% extends 'base2.html' %}
+
+{% block style %}
+<style>
+  div.gallery {
+    position: relative;
+  }
+  div.gallery img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border: 1px solid gray;
+  }
+  .btm {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .barlinks {
+    color: gray;
+    margin-right: 16px;
+  }
+</style>
+{% endblock %}
+
+
+{% block subhead %}
+{% endblock %}
+
+
+{% block content %}
+<h2>Screenshots</h2>
+{% for result in results %}
+<div class="gallery">
+    <p><audio {% if network == 'high' %}preload="auto"{% else %}preload="none"{% endif %}></audio><a href='' style='color: gray;'>{{ result.title }}</a>
+</div>
+<!--<div class="desc">{{ i.time }}</div>-->
+<hr class='btm'></hr>
+{% endfor %}
+{% endblock %}

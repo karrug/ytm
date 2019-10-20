@@ -9,7 +9,7 @@ function remove_blue_color() {
     var lis = document.getElementsByTagName('li');
     for (var i=0; i<lis.length; i++) {
         var videoid = lis[i].getAttribute('data-id');
-        lis[i].firstChild.nextSibling.style.color = '#000000';
+        lis[i].firstChild.nextSibling.style.color = '#444';
     }
 }
 
@@ -29,7 +29,7 @@ function toggle(node, e) {
                 PLAYER.play();
             } else {
                 PLAYER.pause();
-                PLAYER.nextSibling.style.color = '#000000';
+                PLAYER.nextSibling.style.color = '#444';
                 if (PLAYER !== node.firstChild) {
                     PLAYER = node.firstChild;
                     remove_blue_color();
