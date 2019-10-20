@@ -54,5 +54,5 @@ def get_src(request, videoid):
 
 
 def update(request):
-    os.system('/root/ytm/env/bin/pip install --yes --upgrade youtube-dl')
+    os.system('../env/bin/pip install --yes --upgrade youtube-dl')
     return HttpResponse('updated')

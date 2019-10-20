@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+  div.gallery {
+    position: relative;
+    padding-bottom: 57.6923076923%;
+  }
+  div.gallery img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border: 1px solid gray;
+  }
+  .btm {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .barlinks {
+    color: gray;
+    margin-right: 16px;
+  }
+</style>
+{% endblock %}
+
+
+{% block subhead %}
+<h3 style='display: inline;'><a style='color: gray; margin-right: 18px;' href='{% url "index" %}'>Home</a></h3>
+<h3 style='display: inline;'><a style='color: gray; margin-right: 18px;' href='{% url "signout" %}'>Signout</a></h3>
+{% endblock %}
+
+
+{% block content %}
+<h2>Screenshots</h2>
+{% for i in data %}
+<div class="gallery">
+  <a target="_blank" href="/screenshots/{{ i.get_name }}.jpg">
+    <img src="/screenshots/{{ i.get_name }}.jpg" alt="{{ i.get_name }}">
+  </a>
+</div>
+<div class="desc">{{ i.time }}</div>
+<hr class='btm'></hr>
+{% endfor %}
+
+<div class="pagination">
+  <span class="step-links">
+    {% if data.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ data.previous_page_number }}">previous</a>
+    {% endif %}
+    <span class="current">
+      Page {{ data.number }} of {{ data.paginator.num_pages }}.
+    </span>
+    {% if data.has_next %}
+    <a href="?page={{ data.next_page_number }}">next</a>
+    <a href="?page={{ data.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+  </span>
+</div>
+{% endblock %}
