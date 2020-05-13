@@ -9,6 +9,7 @@ import pafy
 def get_results(q):
     results = []
     qs = {'q': q, 'maxResults': 12, 'part': 'id,snippet'}
+    pafy.set_api_key(os.environ['PAFY_API_KEY'])
     gdata = pafy.call_gdata('search', qs)
     with youtube_dl.YoutubeDL({'format': 'bestaudio/best'}) as ydl:
         for item in gdata['items']:
@@ -24,6 +25,7 @@ def get_info(videoid):
     with youtube_dl.YoutubeDL({'format': 'bestaudio/best'}) as ydl:
         url = "https://www.youtube.com/watch?v=" + videoid
         info_dict = ydl.extract_info(url, download=False)
+    print(info_dict.get('url', '#'))
     return info_dict.get('url', '#')
 
 
